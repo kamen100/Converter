@@ -12,7 +12,7 @@ class NameToColumn {
         return $columnName;
     }
     public function GetColumnNumber($columnName) {
-        $columnNumber = 0;
+        $columnNumber = 0 ;
         $columnName = strtolower($columnName);
         $aAsciiValue = ord('a') - 1;
         foreach (str_split($columnName) as $character) {
@@ -22,3 +22,4 @@ class NameToColumn {
         return $columnNumber;
     }
 }
+?>

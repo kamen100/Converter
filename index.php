@@ -1,60 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="conten-type" content="text/html" charset="utf8"/>
-<title>Excel</title>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-	
-	$('#btn2').click(btn2);		
-	});
-	function btn2(){
-		
-		$.ajax({
-			url:'IndexToName.php',
-			type:'POST',
-			data:{
-				val1:$('#IndexToName').val()
-			}				
-			}).done( function(data){
-				$('#content').html(data);
-			});	
-}
-</script>
-</head>
-<body>
-
-<div id="wrap">
-    <input type="text" id="IndexToName">
-  <input type="button" value="Преобразувай" id="btn2">
-  <div id="content">
-  
-  </div>  
-  </div>
-  <script type="text/javascript">
-$(document).ready(function(){	
-	$('#btn').click(btn);		
-	});
-	function btn(){		
-		$.ajax({
-			url:'NameToIndex.php',
-			type:'POST',
-			data:{
-				val:$('#NameToColumn').val()
-			}				
-			}).done( function(data){
-				$('#content2').html(data);
-			});	
-}
-</script>
-<div id="wrap">
-    <input type="text" id="NameToColumn">
-  <input type="button" value="Обърни" id="btn">
-  <div id="content2">
-  
-  </div>  
-  </div>
-</body>
+    <head>
+        <meta http-equiv="conten-type" content="text/html" charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Excel</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+        <script type="text/javascript" src="checks.js"></script>
+    </head>
+    <body>
+        <h1>Конвертор на имената на колоните към техните индекси и обратно </h1>
+        <div id="staticParent">
+            <input type="number" id="IN" placeholder="Въведете Индекс на колона" max="20" class="input" oninput="if(this.value.length>20) value=value.slice(20);">
+            <div id="content" class="aj">  
+            </div>  
+        </div>
+        <div id="wrap">
+            <input type="text" id="NC" placeholder="Въведете Име на колона" max="20" class="input" maxlength="20">
+            <div id="content2" class="aj">
+            </div>  
+        </div>
+    </body>
 </html>
